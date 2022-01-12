@@ -1,0 +1,30 @@
+<div class="contactos__lista--wrapper --flex-center">
+  <caption class="contactos__caption --text-centrator">Tabla de contactos de tu agenda cervecera:</caption>
+  <div class="table-responsive">
+    <table class="contactos__table table table-md-responsive table-sm-responsive">
+      <thead>
+        <tr>
+          <th scope="col" class="--bordeless">Nombre</th>
+          <th scope="col">Teléfono </th>
+          <th scope="col">Cumpleaños</th>
+          <th scope="col">Género</th>
+          <th class="contactos__th--favBeers" scope="col">Cervezas favoritas</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of jsonArray">
+        <tr>
+          <th scope="row" class="--bordeless --vertical-aligner">{{i.nombre}}</th>
+          <td class="--vertical-aligner">{{i.telefono}}</td>
+          <td class="--vertical-aligner">{{i.fecha}}</td>
+          <td class="--vertical-aligner">{{i.genero}}</td>
+          <td class="contactos__beerList--style">
+            <ul *ngFor="let j of i.listaBeers">
+              <li>{{j.nombre}} <img class="contactos__img" src="{{j.imagen}}" alt="Cerveza {{j.nombre}}"
+                  title="Imagen de la cerveza {{j.nombre}} cedida por la API "></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

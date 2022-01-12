@@ -1,0 +1,118 @@
+<section class="--flex-center dar-alta__listaSection">
+  <div class="dar-alta__lista--wrapper">
+    <caption class="dar-alta__caption ">Contactos de tu agenda cervecera (Para más informacion entra en "Tus Contactos"
+      )</caption>
+    <div class="--flex-center">
+      <table class="dar-alta__table table table-responsive">
+        <thead>
+          <tr>
+            <th scope="col" class="dar-alta__th">Nombre</th>
+            <th scope="col" class="dar-alta__th">Teléfono </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let n of jsonArray">
+            <th scope="row" class="dar-alta__td">{{n.nombre}}</th>
+            <td class="dar-alta__td">{{n.telefono}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <form [formGroup]="formData">
+    <!-- --------------------------------------------------------Primer input-------------------------------------------------------- -->
+    <div class="dar-alta__input--name">
+      <div class="dar-alta__input--LabelWrapper">
+        <label for="Nombre">Nombre:</label>
+      </div>
+      <div class="dar-alta__input--InputWrapper">
+        <input type="text" name="Nombre" formControlName="name"></div>
+    </div>
+    <div
+      *ngIf="formData.controls['name'].invalid && (formData.controls['name'].dirty || formData.controls['name'].touched)"
+      class="alerta">
+      <div *ngIf="formData.controls['name'].hasError('required')" class="--flex-center">
+        <p class="--alert">Debes introducir tu nombre.</p>
+      </div>
+      <div *ngIf="formData.controls['name'].hasError('minlength')" class="--flex-center">
+        <p class="--alert">Tu nombre debe contener al menos 3 caracteres.</p>
+      </div>
+      <div *ngIf="formData.controls['name'].hasError('maxlength')" class="--flex-center">
+        <p class="--alert">Tu nombre debe contener como mucho 30 caracteres.</p>
+      </div>
+
+    </div>
+
+
+    <!--------------------------------------------------------Segundo input------------------------------------------------------  -->
+    <div class="dar-alta__input--phone">
+      <div class="dar-alta__input--LabelWrapper">
+        <label for="movil">Télefono Móvil:</label></div>
+      <div class="dar-alta__input--InputWrapper">
+        <input type="string" name="movil" formControlName="cellPhone"></div>
+    </div>
+    <div
+      *ngIf="formData.controls['cellPhone'].invalid && (formData.controls['cellPhone'].dirty || formData.controls['cellPhone'].touched)">
+      <div *ngIf="formData.controls['cellPhone'].hasError('required')" class="--flex-center">
+        <p class="--alert">Debes introducir un número de teléfono.</p>
+      </div>
+      <div
+        *ngIf="formData.controls['cellPhone'].hasError('minlength') || formData.controls['cellPhone'].hasError('maxlength')"
+        class="--flex-center">
+        <p class="--alert">El número de teléfono debe tener exactamente 9 cifras.</p>
+      </div>
+    </div>
+
+    <!--------------------------------------------------------Tercer input------------------------------------------------------  -->
+    <div class="dar-alta__input--date">
+      <div class="dar-alta__input--LabelWrapper">
+        <label for='fecha'>Fecha de Nacimiento:</label></div>
+      <div class="dar-alta__input--InputWrapper">
+        <input type="date" name="fecha" formControlName="datePicker"></div>
+    </div>
+    <div *ngIf="formData.controls['datePicker'].hasError('required')" class="--flex-center">
+      <p class="--alert">Debes introducir la fecha de nacimiento.</p>
+    </div>
+
+    <!--------------------------------------------------------Cuarto input------------------------------------------------------  -->
+    <div class="dar-alta__input--gen">
+      <div class="dar-alta__input--LabelWrapper">
+        <label for="sexo">Género:</label></div>
+      <div class="dar-alta__input--InputWrapper">
+        <input type="radio" name="sexo" id='male-btn' value="male" formControlName="sexo" checked>Masculino
+        <input type="radio" name="sexo" id="female-btn" value="female" formControlName="sexo">Femenino</div>
+      <div *ngIf="formData.controls['sexo'].hasError('required')" class="--flex-center">
+        <p class="--alert">Debes introducir tu género.</p>
+      </div>
+    </div>
+    <!--------------------------------------------------------Quinto input------------------------------------------------------  -->
+
+    <h2>Cervezas favoritas:</h2>
+    <div class="cervezas-card_cardWrapper">
+      <div *ngFor="let i of this.beerList" class="cervezas-card_card">
+        <app-cervezas-card [currentBeer]="i" [counter]="this.checkboxCounter"></app-cervezas-card>
+        <div *ngIf="this.checkboxCounter<3" class="cervezas-card_checkbox">
+          <input type="checkbox" formControlName="check" (change)="onCheckBoxChange($event,i)" />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="formData.controls['check'].hasError('required')" class="--flex-center">
+      <p class="--alert dar-alta_alert-last"> Debes añadir alguna cerveza, pero cómo máximo 3!!</p>
+    </div>
+
+
+    <!--------------------------------------------------------Boton de enviar------------------------------------------------------  -->
+    <div class="dar-alta_btnWrapper --flex-center">
+      <button [disabled]="formData.pristine ||formData.invalid" (click)="beerChecker()" (click)="crearContacto()"
+        class="dar-alta__btn--guardar">Guardar</button>
+
+      <button (click)="reload()" class="dar-alta__btn--cancelar">
+        Borrar
+      </button>
+    </div>  
+  </form>
+</section>
+

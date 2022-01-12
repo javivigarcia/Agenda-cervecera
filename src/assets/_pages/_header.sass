@@ -1,0 +1,77 @@
+header
+    display: flex   
+    height: 20vh
+    width: 100%
+    background-color: $--goldenApple-color
+    @media screen and (max-width: $--breakpoint-mobile)
+        flex-direction: column 
+        height: 45vh
+        width: 100%
+    & h1
+        font-family: $--title-font
+        padding-left: 2vw
+        font-weight: $--fat-fontWeight
+        font-size:  1.8rem
+        text-shadow: $--header-textShadow
+        @media screen and (max-width: $--breakpoint-mobile)
+            text-align: center
+            width: 100vw
+        @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+            font-size: 1.2rem
+            
+    & img
+        height: 7.5vh
+        margin-left: 2vw
+        padding: 2vh 1vw 2vh 1vw
+        border: $--icon-border
+        border-radius: 100px
+        aspect-ratio: $--img-ratio
+        @media screen and (max-width: $--breakpoint-mobile)
+            margin-top: 7vh
+            width: 15vw
+            height: 9vh
+            padding: 2vh 3vw 2vh 3vw
+            margin-bottom: 2vh 
+        @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+            padding: 2vh 2.7vw 2vh 2.7vw    
+
+.header-nav__links
+    justify-content: right
+    padding-left: 25vw  
+    @media screen and (max-width: $--breakpoint-mobile)
+        justify-content: space-between 
+        padding-left: 5vw
+        padding-right: 5vw
+    @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+        flex-wrap: wrap
+        flex-direction: column
+        margin-top: 4vh
+        
+    
+
+
+    & a
+        padding-left: 2vw
+        padding-right: 2vw
+        text-decoration: none
+        font-family: $--body-font
+        font-size: 1.2rem
+        color: $--black-color
+        width: 15vw
+        text-align: center
+        @media screen and (max-width: $--breakpoint-mobile)
+            font-weight: $--fat-fontWeight
+            font-family: $--title-font
+            font-size: 0.8rem
+            margin-top: 4vh
+            width: 25vw 
+            text-align: center
+        @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+            font-size: 0.8rem
+            font-weight: $--fat-fontWeight
+            width: 25vw
+            padding-top: 3vh
+
+        
+    & a:hover
+            text-shadow: $--link-textShadow

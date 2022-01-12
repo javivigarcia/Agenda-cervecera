@@ -1,0 +1,37 @@
+@import '../_layouts/_breakpoints'
+
+@mixin botones()
+    font-family: $--body-font
+    font-weight: $--slim-fontWeight
+    margin-right: 2vw
+    color: $--ash-color
+    text-shadow: $--link-textShadow
+    background-color: $--goldenApple-color
+    border-radius: 80px
+    padding: 2vh 1vw 2vh 1vw
+    @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+        padding: 2vh 3vw 2vh 3vw
+        margin-right: 4vw
+    @media screen and (max-width: $--breakpoint-mobile)
+        padding: 2vh 3vw 2vh 3vw
+        margin-right: 4vw
+
+@mixin alertas()
+    font-family: $--body-font
+    background-color: $--lightRed-color
+    width: 45vw
+    padding: 2vh 0 2vh
+    text-align: center
+    color: $--black-color
+    border-left: solid 5px $--onlyOrange-color
+    @media screen and (max-width: $--breakpoint-tablet ) and (min-width: $--breakpoint-mobile)
+        width: 55vw
+    @media screen and (max-width: $--breakpoint-mobile)
+        width: 80vw
+        font-size: 0.8rem
+        
+    &.dar-alta_alert-last
+        margin-top: 5vh
+        
+
+

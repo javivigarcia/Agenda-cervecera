@@ -1,0 +1,90 @@
+body 
+    width: 100%
+    background-color: $--indivisible-color
+
+.dar-alta_btnWrapper
+    padding: 10vh 0 15vh 0
+
+.dar-alta__btn--guardar
+    @include botones()
+    border: $--cyan-color solid 0.5px
+    &:hover
+        background-color: $--cyan-color
+        color: $--indivisible-color
+        box-shadow:  $--btn-boxShadow
+        
+
+.dar-alta__btn--cancelar
+    @include botones()
+    border: $--onlyOrange-color solid 0.5px
+    &:hover
+        background-color: $--onlyOrange-color
+        color: $--indivisible-color
+        box-shadow:  $--btn-boxShadow
+
+//----------------------------Parte de la lista de contactos----------------------------
+ 
+.dar-alta__caption
+    font-family: $--title-font
+    font-weight: $--fat-fontWeight
+    font-size: 1.2rem
+    width: 50vw
+    padding-bottom: 4vh
+    color: $--black-color
+    text-align: center
+    @media screen and (max-width: $--breakpoint-mobile)
+        font-size: 1rem
+        width: 75vw
+        padding-left: 4vw
+        
+
+.dar-alta__lista--wrapper
+    display: flex column
+    flex-wrap: wrap
+    margin-bottom: 10vh
+    margin-top: 7.5vh
+    background-color: $--cyan-color
+    border: solid 1px $--ash-color
+    border-radius: 10px
+    padding: 2vh 2vw 2vh 2vw
+    &:hover
+        box-shadow: $--btn-boxShadow
+    
+
+.dar-alta__table
+    font-family: $--body-font
+
+tr,td,th
+    border: 0px !important
+    
+
+        
+
+//-----------------------------------------------formulario:--------------------------------------
+
+label
+    font-family: $--title-font
+    font-weight: $--fat-fontWeight
+    padding-left: 2vw
+    font-size: 1.4rem
+
+.dar-alta__input--gen
+    font-family: $--body-font
+
+.dar-alta__input--gen,.dar-alta__input--date,.dar-alta__input--phone,.dar-alta__input--name
+    width: 100vw
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+.dar-alta__input--LabelWrapper
+    justify-content: center
+.dar-alta__input--InputWrapper
+    text-align: center
+    padding-bottom: 5px
+    margin-bottom: 1vh
+    @media screen and (max-width: $--breakpoint-mobile)
+        margin: 2vh 0 2vh 0
+    
+    
+    
+
